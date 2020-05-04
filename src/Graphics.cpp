@@ -65,8 +65,14 @@ void Graphics::drawTrafficObjects()
 
     float opacity = 0.85;
     cv::addWeighted(_images.at(1), opacity, _images.at(0), 1.0 - opacity, 0, _images.at(2));
+    // plot for my screen/*
+    cv::Mat _images2;
+    cv::resize(_images.at(2), _images2 , cv::Size() , 0.25 , 0.25);
+    cv::imshow(_windowName, _images2);
+    // plot for my screen*/
 
     // display background and overlay image
-    cv::imshow(_windowName, _images.at(2));
+    // original code
+    //cv::imshow(_windowName, _images.at(-2));
     cv::waitKey(33);
 }
